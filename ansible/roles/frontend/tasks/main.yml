@@ -1,0 +1,69 @@
+- name: Create .env file for frontend
+  template:
+    src: env.j2
+    dest: /home/ubuntu/blog-app/frontend/.env
+    owner: ubuntu
+    group: ubuntu
+    mode: 0644
+
+- name: Install unzip and AWS CLI manually
+  shell: |
+    sudo apt update -y
+    sudo apt install unzip -y
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+  args:
+    executable: /bin/bash
+    chdir: /home/ubuntu
+  become: yes
+
+
+
+
+- name: Install pnpm using NVM
+  shell: |
+    export NVM_DIR="/home/ubuntu/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    npm install -g pnpm
+  args:
+    executable: /bin/bash
+  become_user: ubuntu
+
+
+- name: Install frontend dependencies using pnpm via NVM
+  shell: |
+    export NVM_DIR="/home/ubuntu/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    cd /home/ubuntu/blog-app/frontend
+    pnpm install
+  args:
+    executable: /bin/bash
+  become_user: ubuntu
+
+
+- name: Build frontend using pnpm via NVM
+  shell: |
+    export NVM_DIR="/home/ubuntu/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    cd /home/ubuntu/blog-app/frontend
+    pnpm run build
+  args:
+    executable: /bin/bash
+  become_user: ubuntu
+
+
+- name: Deploy to S3 using environment variables
+  shell: |
+    export NVM_DIR="/home/ubuntu/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    export AWS_ACCESS_KEY_ID={{ s3_access_key }}
+    export AWS_SECRET_ACCESS_KEY={{ s3_secret_key }}
+    export AWS_DEFAULT_REGION=eu-north-1
+    cd /home/ubuntu/blog-app/frontend
+    aws s3 sync dist/ s3://{{ s3_frontend_bucket }}
+  args:
+    executable: /bin/bash
+  become_user: ubuntu
+
+

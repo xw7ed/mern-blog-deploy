@@ -1,0 +1,6 @@
+- name: Provision backend server
+  hosts: backend
+  become: yes
+
+  roles:
+    - backend
