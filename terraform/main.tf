@@ -223,7 +223,8 @@ resource "aws_instance" "backend" {
     su - ubuntu -c 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && pm2 startup'
 
     echo "Creating logs directory..."
-    su - ubuntu -c 'mkdir -p ~/logs'
+    su - ubuntu -c 'mkdir -p /home/ubuntu/blog-app/backend/logs'
+    su - ubuntu -c 'chown ubuntu:ubuntu /home/ubuntu/blog-app/backend/logs'
 
     echo "EC2 initialization script completed!"
   EOF

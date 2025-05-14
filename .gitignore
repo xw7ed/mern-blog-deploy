@@ -1,0 +1,19 @@
+# Ignore environment files
+.env
+*.env
+
+# Ignore terraform state & configs
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+
+# Ignore AWS credentials (if any are generated)
+*.pem
+
+# Ignore Ansible sensitive vars (if used)
+ansible/vars/*.yml
+ansible/roles/*/templates/*.env
+
+# Node.js modules (optional)
+node_modules/
