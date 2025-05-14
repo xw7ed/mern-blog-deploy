@@ -101,7 +101,7 @@ ansible-playbook -i inventory ansible/frontend-playbook.yml
 
     ✔️ Backend started via Ansible and PM2
 
-🪲 Issues & Fixes (Optional but Valuable)
+🪲 Issues & Fixes 
 
     Issue: EC2 couldn’t write to logs directory, PM2 status = errored
     Fix: Added /backend/logs folder via Ansible & Terraform user_data
