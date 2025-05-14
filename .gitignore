@@ -22,3 +22,6 @@ node_modules/
 .terraform/
 *.tfstate
 *.tfstate.backup
+
+#Ansible
+ansible/roles/*/vars/main.yml
