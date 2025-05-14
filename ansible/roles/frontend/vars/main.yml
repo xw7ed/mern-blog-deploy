@@ -1,0 +1,5 @@
+s3_access_key: "REDACTED"
+s3_secret_key: "REDACTED"
+s3_media_bucket: "sda1027"
+s3_frontend_bucket: "frontend-bucket-sda1027"
+backend_dns: "56.228.5.181"

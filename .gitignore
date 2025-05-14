@@ -24,4 +24,4 @@ node_modules/
 *.tfstate.backup
 
 #Ansible
-ansible/roles/*/vars/main.yml
+#ansible/roles/*/vars/main.yml

@@ -1,0 +1,8 @@
+mongodb_uri: "mongodb+srv://sda1027:@blog-app.igbc2ap.mongodb.net/blog-app?retryWrites=true&w=majority&appName=blog-app"
+
+jwt_secret: "REDACTED"
+jwt_refresh: "REDACTED"
+s3_access_key: "REDACTED"
+s3_secret_key: "REDACTED"
+s3_bucket: "sda1027"
+media_base_url: "https://sda1027.s3.eu-north-1.amazonaws.com"
