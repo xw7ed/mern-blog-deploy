@@ -17,3 +17,8 @@ ansible/roles/*/templates/*.env
 
 # Node.js modules (optional)
 node_modules/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
