@@ -33,7 +33,7 @@ To provision and deploy a production-like MERN stack environment on AWS using in
 ---
 
 ## 🛠️ Project Structure
-
+```bash
 mern-blog-deploy/
 ├── terraform/ # All Terraform .tf files
 ├── ansible/ # Ansible playbooks and roles
@@ -44,7 +44,7 @@ mern-blog-deploy/
 │ └── frontend/
 ├── screenshots/ # Required screenshots
 └── README.md
-
+```
 
 ---
 
